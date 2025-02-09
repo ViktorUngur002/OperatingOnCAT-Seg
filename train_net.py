@@ -12,6 +12,7 @@ from collections import OrderedDict
 from typing import Any, Dict, List, Set
 
 import torch
+import wandb
 
 import detectron2.utils.comm as comm
 from detectron2.checkpoint import DetectionCheckpointer
@@ -278,6 +279,8 @@ def setup(args):
     """
     Create configs and perform basic setups.
     """
+    wandb.init(project="CAT-Seg results reproducing", sync_tensorboard=True)
+
     cfg = get_cfg()
     # for poly lr schedule
     add_deeplab_config(cfg)

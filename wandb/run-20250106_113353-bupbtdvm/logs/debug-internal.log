@@ -1,0 +1,16 @@
+{"time":"2025-01-06T11:33:53.986506799+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-06T11:33:53.986524049+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250106_113353-bupbtdvm/logs/debug-core.log"}
+{"time":"2025-01-06T11:33:54.089009589+02:00","level":"INFO","msg":"created new stream","id":"bupbtdvm"}
+{"time":"2025-01-06T11:33:54.089050549+02:00","level":"INFO","msg":"stream: started","id":"bupbtdvm"}
+{"time":"2025-01-06T11:33:54.089107619+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"bupbtdvm"}
+{"time":"2025-01-06T11:33:54.089167369+02:00","level":"INFO","msg":"handler: started","stream_id":"bupbtdvm"}
+{"time":"2025-01-06T11:33:54.089178989+02:00","level":"INFO","msg":"sender: started","stream_id":"bupbtdvm"}
+{"time":"2025-01-06T11:33:54.467348682+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-06T11:34:01.102591084+02:00","level":"INFO","msg":"stream: closing","id":"bupbtdvm"}
+{"time":"2025-01-06T11:34:01.102635574+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-06T11:34:01.103673734+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-06T11:34:02.02883618+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-06T11:34:02.407055962+02:00","level":"INFO","msg":"handler: closed","stream_id":"bupbtdvm"}
+{"time":"2025-01-06T11:34:02.407101502+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"bupbtdvm"}
+{"time":"2025-01-06T11:34:02.407119702+02:00","level":"INFO","msg":"sender: closed","stream_id":"bupbtdvm"}
+{"time":"2025-01-06T11:34:02.407209582+02:00","level":"INFO","msg":"stream: closed","id":"bupbtdvm"}

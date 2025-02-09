@@ -1,0 +1,1 @@
+{"total_loss":0.010944966,"_step":540,"time":0.38034123,"_runtime":699.727752696,"_timestamp":1.7362465608369322e+09,"global_step":1794,"rank_data_time":0.0022333749,"data_time":0.0022333749,"lr":0.00019975222,"eta_seconds":29821.564,"_wandb":{"runtime":699}}

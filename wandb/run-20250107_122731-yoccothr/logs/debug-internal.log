@@ -1,0 +1,16 @@
+{"time":"2025-01-07T12:27:31.220968251+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-07T12:27:31.220988351+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250107_122731-yoccothr/logs/debug-core.log"}
+{"time":"2025-01-07T12:27:31.323624171+02:00","level":"INFO","msg":"created new stream","id":"yoccothr"}
+{"time":"2025-01-07T12:27:31.323697341+02:00","level":"INFO","msg":"stream: started","id":"yoccothr"}
+{"time":"2025-01-07T12:27:31.323788161+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"yoccothr"}
+{"time":"2025-01-07T12:27:31.323799361+02:00","level":"INFO","msg":"handler: started","stream_id":"yoccothr"}
+{"time":"2025-01-07T12:27:31.323890931+02:00","level":"INFO","msg":"sender: started","stream_id":"yoccothr"}
+{"time":"2025-01-07T12:27:31.661886714+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-07T12:28:43.738732773+02:00","level":"INFO","msg":"stream: closing","id":"yoccothr"}
+{"time":"2025-01-07T12:28:43.738773113+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-07T12:28:43.739746073+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-07T12:28:44.586270488+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-07T12:28:44.868945093+02:00","level":"INFO","msg":"handler: closed","stream_id":"yoccothr"}
+{"time":"2025-01-07T12:28:44.868986413+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"yoccothr"}
+{"time":"2025-01-07T12:28:44.869009043+02:00","level":"INFO","msg":"sender: closed","stream_id":"yoccothr"}
+{"time":"2025-01-07T12:28:44.869070723+02:00","level":"INFO","msg":"stream: closed","id":"yoccothr"}

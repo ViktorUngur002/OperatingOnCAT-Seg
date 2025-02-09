@@ -1,0 +1,16 @@
+{"time":"2025-01-07T23:09:00.962459639+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-07T23:09:00.962486399+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250107_230900-77hs2pzt/logs/debug-core.log"}
+{"time":"2025-01-07T23:09:01.065002208+02:00","level":"INFO","msg":"created new stream","id":"77hs2pzt"}
+{"time":"2025-01-07T23:09:01.065066238+02:00","level":"INFO","msg":"stream: started","id":"77hs2pzt"}
+{"time":"2025-01-07T23:09:01.065107298+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"77hs2pzt"}
+{"time":"2025-01-07T23:09:01.065242618+02:00","level":"INFO","msg":"handler: started","stream_id":"77hs2pzt"}
+{"time":"2025-01-07T23:09:01.065228458+02:00","level":"INFO","msg":"sender: started","stream_id":"77hs2pzt"}
+{"time":"2025-01-07T23:09:01.487232274+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-07T23:28:06.076256661+02:00","level":"INFO","msg":"stream: closing","id":"77hs2pzt"}
+{"time":"2025-01-07T23:28:06.076293791+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-07T23:28:06.076935071+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-07T23:28:07.317839376+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-07T23:28:07.595931303+02:00","level":"INFO","msg":"handler: closed","stream_id":"77hs2pzt"}
+{"time":"2025-01-07T23:28:07.595974463+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"77hs2pzt"}
+{"time":"2025-01-07T23:28:07.596001133+02:00","level":"INFO","msg":"sender: closed","stream_id":"77hs2pzt"}
+{"time":"2025-01-07T23:28:07.596048713+02:00","level":"INFO","msg":"stream: closed","id":"77hs2pzt"}

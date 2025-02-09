@@ -1,0 +1,16 @@
+{"time":"2025-01-06T18:30:08.776384653+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-06T18:30:08.776402023+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250106_183008-vhev5apq/logs/debug-core.log"}
+{"time":"2025-01-06T18:30:08.878253815+02:00","level":"INFO","msg":"created new stream","id":"vhev5apq"}
+{"time":"2025-01-06T18:30:08.878288375+02:00","level":"INFO","msg":"stream: started","id":"vhev5apq"}
+{"time":"2025-01-06T18:30:08.878326175+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"vhev5apq"}
+{"time":"2025-01-06T18:30:08.878351545+02:00","level":"INFO","msg":"sender: started","stream_id":"vhev5apq"}
+{"time":"2025-01-06T18:30:08.878384925+02:00","level":"INFO","msg":"handler: started","stream_id":"vhev5apq"}
+{"time":"2025-01-06T18:30:09.21982276+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-06T18:30:17.542463348+02:00","level":"INFO","msg":"stream: closing","id":"vhev5apq"}
+{"time":"2025-01-06T18:30:17.542498548+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-06T18:30:17.543049548+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-06T18:30:18.542200553+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-06T18:30:19.04910759+02:00","level":"INFO","msg":"handler: closed","stream_id":"vhev5apq"}
+{"time":"2025-01-06T18:30:19.04915501+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"vhev5apq"}
+{"time":"2025-01-06T18:30:19.04918844+02:00","level":"INFO","msg":"sender: closed","stream_id":"vhev5apq"}
+{"time":"2025-01-06T18:30:19.04921319+02:00","level":"INFO","msg":"stream: closed","id":"vhev5apq"}

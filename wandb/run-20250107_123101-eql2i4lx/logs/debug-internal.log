@@ -1,0 +1,17 @@
+{"time":"2025-01-07T12:31:01.115750936+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-07T12:31:01.115768176+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250107_123101-eql2i4lx/logs/debug-core.log"}
+{"time":"2025-01-07T12:31:01.21825962+02:00","level":"INFO","msg":"created new stream","id":"eql2i4lx"}
+{"time":"2025-01-07T12:31:01.21829977+02:00","level":"INFO","msg":"stream: started","id":"eql2i4lx"}
+{"time":"2025-01-07T12:31:01.21836365+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"eql2i4lx"}
+{"time":"2025-01-07T12:31:01.2184858+02:00","level":"INFO","msg":"sender: started","stream_id":"eql2i4lx"}
+{"time":"2025-01-07T12:31:01.21852748+02:00","level":"INFO","msg":"handler: started","stream_id":"eql2i4lx"}
+{"time":"2025-01-07T12:31:01.696130966+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-07T12:31:30.529710995+02:00","level":"INFO","msg":"tensorboard: no root directory after 10 seconds, using working directory"}
+{"time":"2025-01-07T12:42:40.841047676+02:00","level":"INFO","msg":"stream: closing","id":"eql2i4lx"}
+{"time":"2025-01-07T12:42:40.841089896+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-07T12:42:40.842580326+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-07T12:42:42.128804502+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-07T12:42:42.421847554+02:00","level":"INFO","msg":"handler: closed","stream_id":"eql2i4lx"}
+{"time":"2025-01-07T12:42:42.421870954+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"eql2i4lx"}
+{"time":"2025-01-07T12:42:42.421881894+02:00","level":"INFO","msg":"sender: closed","stream_id":"eql2i4lx"}
+{"time":"2025-01-07T12:42:42.421990094+02:00","level":"INFO","msg":"stream: closed","id":"eql2i4lx"}

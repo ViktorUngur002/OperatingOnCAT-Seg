@@ -1,0 +1,16 @@
+{"time":"2025-01-06T18:03:03.132230022+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-06T18:03:03.132245422+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250106_180303-ndoxktzm/logs/debug-core.log"}
+{"time":"2025-01-06T18:03:03.23460482+02:00","level":"INFO","msg":"created new stream","id":"ndoxktzm"}
+{"time":"2025-01-06T18:03:03.23465044+02:00","level":"INFO","msg":"stream: started","id":"ndoxktzm"}
+{"time":"2025-01-06T18:03:03.23470987+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"ndoxktzm"}
+{"time":"2025-01-06T18:03:03.23475621+02:00","level":"INFO","msg":"handler: started","stream_id":"ndoxktzm"}
+{"time":"2025-01-06T18:03:03.23480661+02:00","level":"INFO","msg":"sender: started","stream_id":"ndoxktzm"}
+{"time":"2025-01-06T18:03:03.604066143+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-06T18:03:08.106709582+02:00","level":"INFO","msg":"stream: closing","id":"ndoxktzm"}
+{"time":"2025-01-06T18:03:08.106739112+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-06T18:03:08.107327261+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-06T18:03:08.928503528+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-06T18:03:09.282394157+02:00","level":"INFO","msg":"handler: closed","stream_id":"ndoxktzm"}
+{"time":"2025-01-06T18:03:09.282470647+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ndoxktzm"}
+{"time":"2025-01-06T18:03:09.282488917+02:00","level":"INFO","msg":"sender: closed","stream_id":"ndoxktzm"}
+{"time":"2025-01-06T18:03:09.282559767+02:00","level":"INFO","msg":"stream: closed","id":"ndoxktzm"}

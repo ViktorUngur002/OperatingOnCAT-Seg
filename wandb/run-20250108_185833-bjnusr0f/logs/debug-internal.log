@@ -1,0 +1,16 @@
+{"time":"2025-01-08T18:58:33.343234256+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-08T18:58:33.343250756+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250108_185833-bjnusr0f/logs/debug-core.log"}
+{"time":"2025-01-08T18:58:33.445390074+02:00","level":"INFO","msg":"created new stream","id":"bjnusr0f"}
+{"time":"2025-01-08T18:58:33.445442174+02:00","level":"INFO","msg":"stream: started","id":"bjnusr0f"}
+{"time":"2025-01-08T18:58:33.445522184+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"bjnusr0f"}
+{"time":"2025-01-08T18:58:33.445573085+02:00","level":"INFO","msg":"handler: started","stream_id":"bjnusr0f"}
+{"time":"2025-01-08T18:58:33.445537495+02:00","level":"INFO","msg":"sender: started","stream_id":"bjnusr0f"}
+{"time":"2025-01-08T18:58:33.827617426+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-08T18:58:38.250666747+02:00","level":"INFO","msg":"stream: closing","id":"bjnusr0f"}
+{"time":"2025-01-08T18:58:38.250703807+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-08T18:58:38.251410389+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-08T18:58:39.05408938+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-08T18:58:39.467146132+02:00","level":"INFO","msg":"handler: closed","stream_id":"bjnusr0f"}
+{"time":"2025-01-08T18:58:39.467209082+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"bjnusr0f"}
+{"time":"2025-01-08T18:58:39.467221532+02:00","level":"INFO","msg":"sender: closed","stream_id":"bjnusr0f"}
+{"time":"2025-01-08T18:58:39.467284313+02:00","level":"INFO","msg":"stream: closed","id":"bjnusr0f"}

@@ -1,0 +1,16 @@
+{"time":"2025-01-08T18:56:48.988453087+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-08T18:56:48.988469648+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250108_185648-vwjy9xuy/logs/debug-core.log"}
+{"time":"2025-01-08T18:56:49.090966118+02:00","level":"INFO","msg":"created new stream","id":"vwjy9xuy"}
+{"time":"2025-01-08T18:56:49.091007118+02:00","level":"INFO","msg":"stream: started","id":"vwjy9xuy"}
+{"time":"2025-01-08T18:56:49.091082648+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"vwjy9xuy"}
+{"time":"2025-01-08T18:56:49.091091088+02:00","level":"INFO","msg":"handler: started","stream_id":"vwjy9xuy"}
+{"time":"2025-01-08T18:56:49.091176139+02:00","level":"INFO","msg":"sender: started","stream_id":"vwjy9xuy"}
+{"time":"2025-01-08T18:56:49.495338791+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-08T18:56:59.393893933+02:00","level":"INFO","msg":"stream: closing","id":"vwjy9xuy"}
+{"time":"2025-01-08T18:56:59.393930913+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-08T18:56:59.394593866+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-08T18:57:00.2046371+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-08T18:57:00.649209118+02:00","level":"INFO","msg":"handler: closed","stream_id":"vwjy9xuy"}
+{"time":"2025-01-08T18:57:00.649254918+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"vwjy9xuy"}
+{"time":"2025-01-08T18:57:00.649290228+02:00","level":"INFO","msg":"sender: closed","stream_id":"vwjy9xuy"}
+{"time":"2025-01-08T18:57:00.649353809+02:00","level":"INFO","msg":"stream: closed","id":"vwjy9xuy"}

@@ -1,0 +1,18 @@
+{"time":"2025-01-07T12:48:09.979093287+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-07T12:48:09.979108207+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250107_124809-u8apm02z/logs/debug-core.log"}
+{"time":"2025-01-07T12:48:10.081349861+02:00","level":"INFO","msg":"created new stream","id":"u8apm02z"}
+{"time":"2025-01-07T12:48:10.081389301+02:00","level":"INFO","msg":"stream: started","id":"u8apm02z"}
+{"time":"2025-01-07T12:48:10.081465291+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"u8apm02z"}
+{"time":"2025-01-07T12:48:10.081492061+02:00","level":"INFO","msg":"sender: started","stream_id":"u8apm02z"}
+{"time":"2025-01-07T12:48:10.081566451+02:00","level":"INFO","msg":"handler: started","stream_id":"u8apm02z"}
+{"time":"2025-01-07T12:48:10.548410336+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-07T12:48:39.566541778+02:00","level":"INFO","msg":"tensorboard: no root directory after 10 seconds, using working directory"}
+{"time":"2025-01-07T21:01:47.267836488+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-01-07T23:08:55.284261286+02:00","level":"INFO","msg":"stream: closing","id":"u8apm02z"}
+{"time":"2025-01-07T23:08:55.284320086+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-07T23:08:55.285241466+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-07T23:08:56.952814329+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-07T23:08:57.378628755+02:00","level":"INFO","msg":"handler: closed","stream_id":"u8apm02z"}
+{"time":"2025-01-07T23:08:57.378698695+02:00","level":"INFO","msg":"sender: closed","stream_id":"u8apm02z"}
+{"time":"2025-01-07T23:08:57.378681115+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"u8apm02z"}
+{"time":"2025-01-07T23:08:57.378803185+02:00","level":"INFO","msg":"stream: closed","id":"u8apm02z"}

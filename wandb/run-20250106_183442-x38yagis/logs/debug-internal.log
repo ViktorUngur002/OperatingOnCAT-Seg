@@ -1,0 +1,17 @@
+{"time":"2025-01-06T18:34:42.606114999+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-06T18:34:42.606138669+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250106_183442-x38yagis/logs/debug-core.log"}
+{"time":"2025-01-06T18:34:42.708778377+02:00","level":"INFO","msg":"created new stream","id":"x38yagis"}
+{"time":"2025-01-06T18:34:42.708819387+02:00","level":"INFO","msg":"stream: started","id":"x38yagis"}
+{"time":"2025-01-06T18:34:42.709005496+02:00","level":"INFO","msg":"handler: started","stream_id":"x38yagis"}
+{"time":"2025-01-06T18:34:42.708965706+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"x38yagis"}
+{"time":"2025-01-06T18:34:42.709046456+02:00","level":"INFO","msg":"sender: started","stream_id":"x38yagis"}
+{"time":"2025-01-06T18:34:43.301459638+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-06T18:35:11.748832858+02:00","level":"INFO","msg":"tensorboard: no root directory after 10 seconds, using working directory"}
+{"time":"2025-01-07T05:10:13.097611999+02:00","level":"INFO","msg":"stream: closing","id":"x38yagis"}
+{"time":"2025-01-07T05:10:13.097731539+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-07T05:10:13.098437839+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-07T05:10:15.064857983+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-07T05:10:15.460645438+02:00","level":"INFO","msg":"handler: closed","stream_id":"x38yagis"}
+{"time":"2025-01-07T05:10:15.460665208+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"x38yagis"}
+{"time":"2025-01-07T05:10:15.460727258+02:00","level":"INFO","msg":"sender: closed","stream_id":"x38yagis"}
+{"time":"2025-01-07T05:10:15.460740808+02:00","level":"INFO","msg":"stream: closed","id":"x38yagis"}

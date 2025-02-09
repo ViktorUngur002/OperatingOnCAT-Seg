@@ -1,0 +1,16 @@
+{"time":"2025-01-08T18:37:53.574648871+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-08T18:37:53.574664671+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250108_183753-kid98rls/logs/debug-core.log"}
+{"time":"2025-01-08T18:37:53.676702399+02:00","level":"INFO","msg":"created new stream","id":"kid98rls"}
+{"time":"2025-01-08T18:37:53.676740039+02:00","level":"INFO","msg":"stream: started","id":"kid98rls"}
+{"time":"2025-01-08T18:37:53.676776449+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"kid98rls"}
+{"time":"2025-01-08T18:37:53.676846719+02:00","level":"INFO","msg":"sender: started","stream_id":"kid98rls"}
+{"time":"2025-01-08T18:37:53.676912189+02:00","level":"INFO","msg":"handler: started","stream_id":"kid98rls"}
+{"time":"2025-01-08T18:37:54.140380055+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-08T18:37:54.790700603+02:00","level":"INFO","msg":"stream: closing","id":"kid98rls"}
+{"time":"2025-01-08T18:37:54.790777253+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-08T18:37:54.791392052+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-08T18:37:56.15959909+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-08T18:37:56.56609445+02:00","level":"INFO","msg":"handler: closed","stream_id":"kid98rls"}
+{"time":"2025-01-08T18:37:56.56616226+02:00","level":"INFO","msg":"sender: closed","stream_id":"kid98rls"}
+{"time":"2025-01-08T18:37:56.56614981+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"kid98rls"}
+{"time":"2025-01-08T18:37:56.56625772+02:00","level":"INFO","msg":"stream: closed","id":"kid98rls"}

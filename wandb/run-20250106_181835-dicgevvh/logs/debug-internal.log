@@ -1,0 +1,16 @@
+{"time":"2025-01-06T18:18:35.650120863+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-06T18:18:35.650136183+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250106_181835-dicgevvh/logs/debug-core.log"}
+{"time":"2025-01-06T18:18:35.752291554+02:00","level":"INFO","msg":"created new stream","id":"dicgevvh"}
+{"time":"2025-01-06T18:18:35.752329584+02:00","level":"INFO","msg":"stream: started","id":"dicgevvh"}
+{"time":"2025-01-06T18:18:35.752379934+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"dicgevvh"}
+{"time":"2025-01-06T18:18:35.752404484+02:00","level":"INFO","msg":"handler: started","stream_id":"dicgevvh"}
+{"time":"2025-01-06T18:18:35.752458354+02:00","level":"INFO","msg":"sender: started","stream_id":"dicgevvh"}
+{"time":"2025-01-06T18:18:36.099905363+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-06T18:18:40.641151005+02:00","level":"INFO","msg":"stream: closing","id":"dicgevvh"}
+{"time":"2025-01-06T18:18:40.641284545+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-06T18:18:40.642233205+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-06T18:18:41.464248093+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-06T18:18:41.840716481+02:00","level":"INFO","msg":"handler: closed","stream_id":"dicgevvh"}
+{"time":"2025-01-06T18:18:41.840738111+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"dicgevvh"}
+{"time":"2025-01-06T18:18:41.840751301+02:00","level":"INFO","msg":"sender: closed","stream_id":"dicgevvh"}
+{"time":"2025-01-06T18:18:41.840828461+02:00","level":"INFO","msg":"stream: closed","id":"dicgevvh"}

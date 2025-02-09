@@ -1,0 +1,16 @@
+{"time":"2025-01-06T18:05:50.312327809+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-06T18:05:50.312340989+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250106_180550-sajmf2xs/logs/debug-core.log"}
+{"time":"2025-01-06T18:05:50.414684851+02:00","level":"INFO","msg":"created new stream","id":"sajmf2xs"}
+{"time":"2025-01-06T18:05:50.414723541+02:00","level":"INFO","msg":"stream: started","id":"sajmf2xs"}
+{"time":"2025-01-06T18:05:50.414803511+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"sajmf2xs"}
+{"time":"2025-01-06T18:05:50.414865281+02:00","level":"INFO","msg":"handler: started","stream_id":"sajmf2xs"}
+{"time":"2025-01-06T18:05:50.414908101+02:00","level":"INFO","msg":"sender: started","stream_id":"sajmf2xs"}
+{"time":"2025-01-06T18:05:50.886298664+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-06T18:05:55.483064487+02:00","level":"INFO","msg":"stream: closing","id":"sajmf2xs"}
+{"time":"2025-01-06T18:05:55.483102357+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-06T18:05:55.483699777+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-06T18:05:56.328099054+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-06T18:05:56.694436369+02:00","level":"INFO","msg":"handler: closed","stream_id":"sajmf2xs"}
+{"time":"2025-01-06T18:05:56.694510139+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"sajmf2xs"}
+{"time":"2025-01-06T18:05:56.694567499+02:00","level":"INFO","msg":"sender: closed","stream_id":"sajmf2xs"}
+{"time":"2025-01-06T18:05:56.694605569+02:00","level":"INFO","msg":"stream: closed","id":"sajmf2xs"}

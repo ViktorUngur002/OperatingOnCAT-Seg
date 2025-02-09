@@ -1,0 +1,17 @@
+{"time":"2025-01-08T19:03:22.59421268+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-08T19:03:22.59422926+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250108_190322-v3sekypx/logs/debug-core.log"}
+{"time":"2025-01-08T19:03:22.696563375+02:00","level":"INFO","msg":"created new stream","id":"v3sekypx"}
+{"time":"2025-01-08T19:03:22.696599215+02:00","level":"INFO","msg":"stream: started","id":"v3sekypx"}
+{"time":"2025-01-08T19:03:22.696681725+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"v3sekypx"}
+{"time":"2025-01-08T19:03:22.696738395+02:00","level":"INFO","msg":"handler: started","stream_id":"v3sekypx"}
+{"time":"2025-01-08T19:03:22.696754965+02:00","level":"INFO","msg":"sender: started","stream_id":"v3sekypx"}
+{"time":"2025-01-08T19:03:23.089881256+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-08T19:03:46.916492078+02:00","level":"INFO","msg":"stream: closing","id":"v3sekypx"}
+{"time":"2025-01-08T19:03:46.916543598+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-08T19:03:46.918510853+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-08T19:03:49.792456649+02:00","level":"INFO","msg":"tensorboard: no root directory after 10 seconds, using working directory"}
+{"time":"2025-01-08T19:03:50.669620907+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-08T19:03:50.961218225+02:00","level":"INFO","msg":"handler: closed","stream_id":"v3sekypx"}
+{"time":"2025-01-08T19:03:50.961277465+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"v3sekypx"}
+{"time":"2025-01-08T19:03:50.961292485+02:00","level":"INFO","msg":"sender: closed","stream_id":"v3sekypx"}
+{"time":"2025-01-08T19:03:50.961355205+02:00","level":"INFO","msg":"stream: closed","id":"v3sekypx"}

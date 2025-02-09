@@ -1,0 +1,16 @@
+{"time":"2025-01-06T18:04:28.288150796+02:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-06T18:04:28.288164806+02:00","level":"INFO","msg":"created symlink","path":"/home/ubuntu/Models/CATSeg/CAT-Seg/wandb/run-20250106_180428-ov1w52vz/logs/debug-core.log"}
+{"time":"2025-01-06T18:04:28.390365257+02:00","level":"INFO","msg":"created new stream","id":"ov1w52vz"}
+{"time":"2025-01-06T18:04:28.390408497+02:00","level":"INFO","msg":"stream: started","id":"ov1w52vz"}
+{"time":"2025-01-06T18:04:28.390465337+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"ov1w52vz"}
+{"time":"2025-01-06T18:04:28.390493457+02:00","level":"INFO","msg":"handler: started","stream_id":"ov1w52vz"}
+{"time":"2025-01-06T18:04:28.390556357+02:00","level":"INFO","msg":"sender: started","stream_id":"ov1w52vz"}
+{"time":"2025-01-06T18:04:28.776882137+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-06T18:04:37.861552333+02:00","level":"INFO","msg":"stream: closing","id":"ov1w52vz"}
+{"time":"2025-01-06T18:04:37.861625043+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-06T18:04:37.862663132+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-06T18:04:38.717497439+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-06T18:04:39.085095046+02:00","level":"INFO","msg":"handler: closed","stream_id":"ov1w52vz"}
+{"time":"2025-01-06T18:04:39.085135356+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ov1w52vz"}
+{"time":"2025-01-06T18:04:39.085173016+02:00","level":"INFO","msg":"sender: closed","stream_id":"ov1w52vz"}
+{"time":"2025-01-06T18:04:39.085221076+02:00","level":"INFO","msg":"stream: closed","id":"ov1w52vz"}
