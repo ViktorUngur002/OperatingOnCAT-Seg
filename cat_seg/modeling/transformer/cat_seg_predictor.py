@@ -60,6 +60,7 @@ class CATSegPredictor(nn.Module):
             self.test_class_texts = self.class_texts
         device = "cuda" if torch.cuda.is_available() else "cpu"
   
+        # in this part we initialize the tokenizer
         self.tokenizer = None
         if clip_pretrained == "ViT-G" or clip_pretrained == "ViT-H":
             # for OpenCLIP models
@@ -69,12 +70,16 @@ class CATSegPredictor(nn.Module):
                 pretrained=pretrain, 
                 device=device, 
                 force_image_size=336,)
-        
+
+            # creates the OpenCLIP model and its preprocessing transforms (above)
+            # and here it takes its tokenizer
             self.tokenizer = open_clip.get_tokenizer(name)
         else:
             # for OpenAI models
+            # it initializes the OpenAI CLIP
             clip_model, clip_preprocess = clip.load(clip_pretrained, device=device, jit=False, prompt_depth=prompt_depth, prompt_length=prompt_length)
     
+        # in the following part of the code they are setting the prompt template which is going to be used
         self.prompt_ensemble_type = prompt_ensemble_type        
 
         if self.prompt_ensemble_type == "imagenet_select":
@@ -86,12 +91,16 @@ class CATSegPredictor(nn.Module):
         else:
             raise NotImplementedError
         
+        # setting the prompt tamplate used
         self.prompt_templates = prompt_templates
 
         self.text_features = self.class_embeddings(self.class_texts, prompt_templates, clip_model).permute(1, 0, 2).float()
         self.text_features_test = self.class_embeddings(self.test_class_texts, prompt_templates, clip_model).permute(1, 0, 2).float()
         
+        # initializing the CLIP model
         self.clip_model = clip_model.float()
+        # preprocessing steps required for the CLIP model (such as resizing, normalization) 
+        # are saved in clip_preprocess
         self.clip_preprocess = clip_preprocess
         
         transformer = Aggregator(
@@ -149,12 +158,18 @@ class CATSegPredictor(nn.Module):
         return ret
 
     def forward(self, x, vis_guidance, prompt=None, gt_cls=None):
+        # the following line reverses the order of CLIP intermediate features
+        # the is due to the architecture that is about to follow
         vis = [vis_guidance[k] for k in vis_guidance.keys()][::-1]
+        #  takes the text classes for training (or testing)
         text = self.class_texts if self.training else self.test_class_texts
         text = [text[c] for c in gt_cls] if gt_cls is not None else text
+        # the folllowing line is creating the text embeddings
         text = self.get_text_embeds(text, self.prompt_templates, self.clip_model, prompt)
         
+        # the text emebddings are repeated for each instance in the batch
         text = text.repeat(x.shape[0], 1, 1, 1)
+        # the image features, text embeddings and intermediate CLIP features are sent to the transformer
         out = self.transformer(x, text, vis)
         return out
 
@@ -192,10 +207,13 @@ class CATSegPredictor(nn.Module):
             tokens = []
             for classname in classnames:
                 if ', ' in classname:
+                    # each class name is splitted by the character ','
                     classname_splits = classname.split(', ')
+                    # each class is inserted into the prompt "a photo of a [classname]"
                     texts = [template.format(classname_splits[0]) for template in templates]
                 else:
                     texts = [template.format(classname) for template in templates]  # format with class
+                # now on the prompts the tokenizer is applied
                 if self.tokenizer is not None:
                     texts = self.tokenizer(texts).cuda()
                 else: 
@@ -207,10 +225,15 @@ class CATSegPredictor(nn.Module):
         elif self.tokens is not None and prompt is None:
             tokens = self.tokens
 
+        # here the CLIP model returns the text embeddings using tokens
         class_embeddings = clip_model.encode_text(tokens, prompt)
+        # the text embeddings are normalized
+        # each embedding vector is divided by its norm (magnitude), 
+        # making all vectors unit vectors 
         class_embeddings = class_embeddings / class_embeddings.norm(dim=-1, keepdim=True)
         
-        
+        # adds a new dimension to the embeddings, 
+        # making them compatible with other parts of the model
         class_embeddings = class_embeddings.unsqueeze(1)
         
         if not self.training:

@@ -26,20 +26,20 @@ INPUT:
     ENABLED: true
     SINGLE_CATEGORY_MAX_AREA: 1.0
     SIZE:
-    - 64
-    - 64
+    - 256
+    - 256
     TYPE: absolute
   DATASET_MAPPER_NAME: mask_former_semantic
   FORMAT: RGB
   MASK_FORMAT: polygon
-  MAX_SIZE_TEST: 320
+  MAX_SIZE_TEST: 1280
   MAX_SIZE_TRAIN: 1333
-  MIN_SIZE_TEST: 128
+  MIN_SIZE_TEST: 512
   MIN_SIZE_TRAIN:
-  - 64
+  - 256
   MIN_SIZE_TRAIN_SAMPLING: choice
   RANDOM_FLIP: horizontal
-  SIZE_DIVISIBILITY: 64
+  SIZE_DIVISIBILITY: 256
 MODEL:
   ANCHOR_GENERATOR:
     ANGLES:
@@ -299,8 +299,8 @@ MODEL:
     NAME: CATSegHead
     NORM: GN
     NUM_CLASSES: 171
-    NUM_HEADS: 4
-    NUM_LAYERS: 2
+    NUM_HEADS: 2
+    NUM_LAYERS: 1
     POOLING_SIZES:
     - 1
     - 1
@@ -317,7 +317,7 @@ MODEL:
     TRAIN_CLASS_INDEXES: datasets/coco/coco_stuff/split/seen_indexes.json
     TRAIN_CLASS_JSON: datasets/coco.json
     USE_DEPTHWISE_SEPARABLE_CONV: false
-    WINDOW_SIZES: 12
+    WINDOW_SIZES: 6
   SWIN:
     APE: false
     ATTN_DROP_RATE: 0.0
@@ -346,8 +346,8 @@ MODEL:
     QKV_BIAS: true
     QK_SCALE: null
     WINDOW_SIZE: 7
-  WEIGHTS: output/model_final.pth
-OUTPUT_DIR: output/eval
+  WEIGHTS: output//model_final.pth
+OUTPUT_DIR: output//eval
 SEED: -1
 SOLVER:
   AMP:

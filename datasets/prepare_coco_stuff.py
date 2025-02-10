@@ -179,7 +179,8 @@ COCO_CATEGORIES = [{'color': [220, 20, 60], 'isthing': 1, 'id': 0, 'name': 'pers
                    {'id': 180, 'name': 'window-other', 'supercategory': 'window', 'trainId': 169},
                    {'id': 181, 'name': 'wood', 'supercategory': 'solid', 'trainId': 170}]
 
-
+# the goal of the script is to process and prepare the 
+# COCO-Stuff dataset for semantic segmentation
 if __name__ == "__main__":
     dataset_dir = Path(os.getenv("DETECTRON2_DATASETS", "datasets")) / "coco-stuff"
 

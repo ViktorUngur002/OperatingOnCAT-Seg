@@ -55,19 +55,22 @@ class CATSeg(nn.Module):
         self.test_class_json = test_class_json
 
         self.clip_finetune = clip_finetune
+        # specifies the fine tune that is applied to the CLIP model
         for name, params in self.sem_seg_head.predictor.clip_model.named_parameters():
             if "transformer" in name:
                 if clip_finetune == "prompt":
+                    # only CLIP params with prompt in their name are trained, others no
                     params.requires_grad = True if "prompt" in name else False
                 elif clip_finetune == "attention":
                     if "attn" in name:
-                        # QV fine-tuning for attention blocks
+                        # QV fine-tuning for attention blocks (trains parameters to query or key projections)
                         params.requires_grad = True if "q_proj" in name or "v_proj" in name else False
                     elif "position" in name:
                         params.requires_grad = True
                     else:
                         params.requires_grad = False
                 elif clip_finetune == "full":
+                    # all parameters are trained
                     params.requires_grad = True
                 else:
                     params.requires_grad = False
@@ -81,8 +84,12 @@ class CATSeg(nn.Module):
         self.upsample1 = nn.ConvTranspose2d(self.proj_dim, 256, kernel_size=2, stride=2)
         self.upsample2 = nn.ConvTranspose2d(self.proj_dim, 128, kernel_size=4, stride=4)
 
+        # setting the layers from where the intermediate features are getting extracted
         self.layer_indexes = [3, 7] if clip_pretrained == "ViT-B/16" else [7, 15] 
         self.layers = []
+
+        # extracting intermediate CLIP visual features
+        # the location is sem_seg_head.predictor.clip_model.visual
         for l in self.layer_indexes:
             self.sem_seg_head.predictor.clip_model.visual.transformer.resblocks[l].register_forward_hook(lambda m, _, o: self.layers.append(o))
 
@@ -134,31 +141,51 @@ class CATSeg(nn.Module):
                     each class for each pixel.
         """
         
+        # takes the images from input dict, sends them to GPU, and stores in images
         images = [x["image"].to(self.device) for x in batched_inputs]
+
+        # for inference mode, this is a strategy used to handle large images by 
+        # splitting them into smaller parts for prediction and then combining the results
         if not self.training and self.sliding_window:
             return self.inference_sliding_window(batched_inputs)
 
+        # the following line normalizes each image using CLIP's expected mean and std deviation
         clip_images = [(x - self.clip_pixel_mean) / self.clip_pixel_std for x in images]
+
+        # adds padding to the images so that they are divisible by self.size_divisibility
+        # ensures compatibility with the model's architecture
         clip_images = ImageList.from_tensors(clip_images, self.size_divisibility)
 
         self.layers = []
 
+        # the images are resized to a CLIP resolution, so that we can apply CLIP
         clip_images_resized = F.interpolate(clip_images.tensor, size=self.clip_resolution, mode='bilinear', align_corners=False, )
+
+        # the encode_image method will produce CLIP features
+        # here is the CLIP located: sem_seg_head.predictor.clip_model.encode_image
         clip_features = self.sem_seg_head.predictor.clip_model.encode_image(clip_images_resized, dense=True)
 
+        # here image CLIP features are extracted and [CLS] is omitted
         image_features = clip_features[:, 1:, :]
 
-        # CLIP ViT features for guidance
+        # the CLIP image features are being rearranged
         res3 = rearrange(image_features, "B (H W) C -> B C H W", H=24)
+
+        # here in res4 and res5 they rearrange features from intermediate CLIP layers
+        # and then they upsample them so that they match the final features
         res4 = rearrange(self.layers[0][1:, :, :], "(H W) B C -> B C H W", H=24)
         res5 = rearrange(self.layers[1][1:, :, :], "(H W) B C -> B C H W", H=24)
         res4 = self.upsample1(res4)
         res5 = self.upsample2(res5)
         features = {'res5': res5, 'res4': res4, 'res3': res3,}
 
+        # now here we get the final outputs as seen we get them from sem_seg_head
+        # this sem_seg_head takes the CLIP final features, and visual ones (final + intermediate)
         outputs = self.sem_seg_head(clip_features, features)
         if self.training:
+            # ground truth semantic seg masks are extracted and stacked in one tensor
             targets = torch.stack([x["sem_seg"].to(self.device) for x in batched_inputs], dim=0)
+            # model outputs are resized
             outputs = F.interpolate(outputs, size=(targets.shape[-2], targets.shape[-1]), mode="bilinear", align_corners=False)
             
             num_classes = outputs.shape[1]
@@ -169,6 +196,8 @@ class CATSeg(nn.Module):
             _onehot = F.one_hot(targets[mask], num_classes=num_classes).float()
             _targets[mask] = _onehot
             
+            # a binary cross-entropy loss is computed between the model's 
+            # predictions (outputs) and the one-hot encoded target labels (_targets)
             loss = F.binary_cross_entropy_with_logits(outputs, _targets)
             losses = {"loss_sem_seg" : loss}
             return losses

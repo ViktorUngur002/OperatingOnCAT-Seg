@@ -59,5 +59,7 @@ class CATSegHead(nn.Module):
             img_feats: (B, C, HW)
             guidance_features: (B, C, )
         """
+        # a feature rearrangement takes place and the image features are tooked from CLIP model features
         img_feat = rearrange(features[:, 1:, :], "b (h w) c->b c h w", h=self.feature_resolution[0], w=self.feature_resolution[1])
+        # passes the features to the predictor
         return self.predictor(img_feat, guidance_features, prompt, gt_cls)

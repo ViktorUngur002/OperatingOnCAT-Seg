@@ -95,6 +95,11 @@ class Trainer(DefaultTrainer):
         evaluator manually in your script and do not have to worry about the
         hacky if-else logic here.
         """
+        # this method creates an evaluator for a given dataset to assess the model's performance
+        # it is seelected based on dataset type (eg. semantic segmentation, panoptic segmentation,...)
+        # It checks the metadata associated with the dataset (evaluator_type) 
+        # and returns an appropriate evaluator object
+
         if output_folder is None:
             output_folder = os.path.join(cfg.OUTPUT_DIR, "inference")
         evaluator_list = []
@@ -151,6 +156,12 @@ class Trainer(DefaultTrainer):
 
     @classmethod
     def build_train_loader(cls, cfg):
+        # builds a dataloader for training
+        # It selects the appropriate dataset mapper 
+        # (i.e., a component that processes data for the model) based on the 
+        # input type specified in the configuration 
+        # (e.g., semantic segmentation, panoptic segmentation, ...)
+
         # Semantic segmentation dataset mapper
         if cfg.INPUT.DATASET_MAPPER_NAME == "mask_former_semantic":
             mapper = MaskFormerSemanticDatasetMapper(cfg, True)
@@ -174,6 +185,11 @@ class Trainer(DefaultTrainer):
 
     @classmethod
     def build_optimizer(cls, cfg, model):
+
+        # here ste setting for the optimizers are provided
+        # the parameters optimizers need are learning rate, weight decay, 
+        # operations on them are performed here
+
         weight_decay_norm = cfg.SOLVER.WEIGHT_DECAY_NORM
         weight_decay_embed = cfg.SOLVER.WEIGHT_DECAY_EMBED
 
@@ -268,7 +284,7 @@ class Trainer(DefaultTrainer):
             cls.build_evaluator(
                 cfg, name, output_folder=os.path.join(cfg.OUTPUT_DIR, "inference_TTA")
             )
-            for name in cfg.DATASETS.TEST
+            for name in cfg.DATASETS.TEST # here this is used for evaluation part, if TTA enabled, and it goes for all the datasets we evaluate on (we did only PC59)
         ]
         res = cls.test(cfg, model, evaluators)
         res = OrderedDict({k + "_TTA": v for k, v in res.items()})
@@ -281,11 +297,10 @@ def setup(args):
     """
     wandb.init(project="CAT-Seg results reproducing", sync_tensorboard=True)
 
-    cfg = get_cfg()
-    # for poly lr schedule
-    add_deeplab_config(cfg)
-    add_cat_seg_config(cfg)
-    cfg.merge_from_file(args.config_file)
+    cfg = get_cfg() # detectron2 function, initializes a configuration object
+    add_deeplab_config(cfg) # for poly lr schedule
+    add_cat_seg_config(cfg) # adds custom CAT-Seg configurations
+    cfg.merge_from_file(args.config_file) # merges the above with the file specified by us in command line
     cfg.merge_from_list(args.opts)
     cfg.freeze()
     default_setup(cfg, args)
@@ -295,33 +310,36 @@ def setup(args):
 
 
 def main(args):
-    cfg = setup(args)
-    torch.set_float32_matmul_precision("high")
+    cfg = setup(args) # configures the environment and loads the configuration settings
+    torch.set_float32_matmul_precision("high") # sets the precision for matrix multiplication
     if args.eval_only:
         model = Trainer.build_model(cfg)
         DetectionCheckpointer(model, save_dir=cfg.OUTPUT_DIR).resume_or_load(
             cfg.MODEL.WEIGHTS, resume=args.resume
-        )
-        res = Trainer.test(cfg, model)
-        if cfg.TEST.AUG.ENABLED:
+        ) # loads the pre-trained weights of the model or resumes training from a checkpoint
+        res = Trainer.test(cfg, model) # performs evaluation
+
+        # if test-time augmentation is enabled it runs additional evaluation
+        # can increase performance with this augmented data (flipping, scaling)
+        if cfg.TEST.AUG.ENABLED: 
             res.update(Trainer.test_with_TTA(cfg, model))
         if comm.is_main_process():
-            verify_results(cfg, res)
+            verify_results(cfg, res) # verifies the evaluation results to ensure correctness
         return res
 
-    trainer = Trainer(cfg)
-    trainer.resume_or_load(resume=args.resume)
+    trainer = Trainer(cfg) # initializing the class used for training
+    trainer.resume_or_load(resume=args.resume) # either resumes training, or starts from scratch
     return trainer.train()
 
 
 if __name__ == "__main__":
-    args = default_argument_parser().parse_args()
+    args = default_argument_parser().parse_args() # here is a function from detectron2, used to parse command-line arguments
     print("Command Line Args:", args)
-    launch(
-        main,
-        args.num_gpus,
-        num_machines=args.num_machines,
-        machine_rank=args.machine_rank,
-        dist_url=args.dist_url,
-        args=(args,),
+    launch( # a function from detectron2 for distributed training (multiple machines or GPUs)
+        main, # calling the starting point of the program
+        args.num_gpus, # number of GPUs used
+        num_machines=args.num_machines, # number of machines used (maybe training is done across multiple servers)
+        machine_rank=args.machine_rank, # each machine idententifier
+        dist_url=args.dist_url, # a sort of IP for this machines to communicate through
+        args=(args,), # the other arguments that are passed
     )
