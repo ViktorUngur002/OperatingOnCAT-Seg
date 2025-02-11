@@ -390,10 +390,14 @@ class ClassTransformerLayer(nn.Module):
             x: B, C, T, H, W
             guidance: B, T, C
         """
+
+        # batch, channels, patches(tokens), height, width
         B, C, T, H, W = x.size()
+        # an average pooling is applied on the visual features
         x_pool = self.pool_features(x)
         *_, H_pool, W_pool = x_pool.size()
         
+        # adds padding tokens (zeros) to the visual ones if needed
         if self.padding_tokens is not None:
             orig_len = x.size(2)
             if orig_len < self.pad_len:
@@ -402,6 +406,8 @@ class ClassTransformerLayer(nn.Module):
                 x_pool = torch.cat([x_pool, padding_tokens], dim=2)
 
         x_pool = rearrange(x_pool, 'B C T H W -> (B H W) T C')
+        # here the same padding process is done for the textual features, 
+        # to ensure that the two typed of features have this dimension equal 
         if guidance is not None:
             if self.padding_guidance is not None:
                 if orig_len < self.pad_len:
@@ -409,6 +415,8 @@ class ClassTransformerLayer(nn.Module):
                     guidance = torch.cat([guidance, padding_guidance], dim=1)
             guidance = repeat(guidance, 'B T C -> (B H W) T C', H=H_pool, W=W_pool)
 
+        # this is where the model computes attention over the temporal dimension
+        # between text and image
         x_pool = x_pool + self.attention(self.norm1(x_pool), guidance) # Attention
         x_pool = x_pool + self.MLP(self.norm2(x_pool)) # MLP
 
@@ -416,6 +424,7 @@ class ClassTransformerLayer(nn.Module):
         x_pool = F.interpolate(x_pool, size=(H, W), mode='bilinear', align_corners=True)
         x_pool = rearrange(x_pool, '(B T) C H W -> B C T H W', B=B)
 
+        # removing the padding tokens, if they were added
         if self.padding_tokens is not None:
             if orig_len < self.pad_len:
                 x_pool = x_pool[:, :, :orig_len]
@@ -689,33 +698,49 @@ class Aggregator(nn.Module):
         """
         classes = None
 
+        # the correlation function calculates the similarity between image and textual features
         corr = self.correlation(img_feats, text_feats)
+        # handles cases where the number of text tokens exceeds the pad_len limit
         if self.pad_len > 0 and text_feats.size(1) > self.pad_len:
+            # avg computes the average correlation by permuting the corr tensor and 
+            # flattening the spatial dimensions
             avg = corr.permute(0, 2, 1, 3, 4).flatten(-3).max(dim=-1)[0] 
+            # the topk function selects the top pad_len correlated classes
             classes = avg.topk(self.pad_len, dim=-1, sorted=False)[1]
             th_text = F.normalize(text_feats, dim=-1)
             th_text = torch.gather(th_text, dim=1, index=classes[..., None, None].expand(-1, -1, th_text.size(-2), th_text.size(-1)))
             orig_clases = text_feats.size(1)
             img_feats = F.normalize(img_feats, dim=1) # B C H W
             text_feats = th_text
+            # the correlation is recomputed using the truncated th_text embeddings
             corr = torch.einsum('bchw, btpc -> bpthw', img_feats, th_text)
         #corr = self.feature_map(img_feats, text_feats)
+
+        # the previous computes the cost volume, and the following line will
+        # compute the embedding of the cost volume
         corr_embed = self.corr_embed(corr)
 
+        # the following code will make projections of the intermediate CLIP features
+        # and also projection of these features for the decoder part
         projected_guidance, projected_text_guidance, projected_decoder_guidance = None, None, [None, None]
         if self.guidance_projection is not None:
             projected_guidance = self.guidance_projection(appearance_guidance[0])
         if self.decoder_guidance_projection is not None:
             projected_decoder_guidance = [proj(g) for proj, g in zip(self.decoder_guidance_projection, appearance_guidance[1:])]
 
+        # there will also be a textual features projection
         if self.text_guidance_projection is not None:
             text_feats = text_feats.mean(dim=-2)
             text_feats = text_feats / text_feats.norm(dim=-1, keepdim=True)
             projected_text_guidance = self.text_guidance_projection(text_feats)
 
+        # this code will compute the passing through SwinTransforme for Spatial Aggregation
+        # and then the pass through the normal Transformer for Class Aggregation
         for layer in self.layers:
             corr_embed = layer(corr_embed, projected_guidance, projected_text_guidance)
 
+        # final output logits are computed by the decoder layer
+        # it has the two upsampling Up layers and the head which is a Convolution
         logit = self.conv_decoder(corr_embed, projected_decoder_guidance)
         if classes is not None:
             out = torch.full((logit.size(0), orig_clases, logit.size(2), logit.size(3)), -100., device=logit.device)
